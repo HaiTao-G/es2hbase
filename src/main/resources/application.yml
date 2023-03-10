@@ -1,0 +1,74 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    hbase:
+      zk-host-list: 10.76.210.11,10.76.210.12,10.76.210.13,10.76.210.14,10.76.210.15
+      zk-client-port: 2181 # (?????2181)
+      dfs-root-dir: /hbase # (?????/hbase)
+      zk-node-parent: /hbase  # (?????/hbase)
+      security-auth-way: simple # (?????simple)
+      client-properties: hbase.client.retries.number=3
+  elasticsearch:
+    bboss:
+      default:
+        name: default
+        elasticUser: elastic
+        elasticPassword: 123456
+        elasticsearch:
+          rest:
+            #hostNames: 127.0.0.1:9200
+            hostNames: 10.76.209.27:9200,10.76.209.27:9201,10.76.209.27:9202
+          dateFormat: yyyy.MM.dd
+          timeZone: Asia/Shanghai
+          showTemplate: false
+          discoverHost: true
+        dslfile:
+          refreshInterval: -1
+        http:
+          timeoutConnection: 50000
+          timeoutSocket: 50000
+          connectionRequestTimeout: 50000
+          retryTime: 3
+          maxLineLength: -1
+          maxHeaderCount: 200
+          maxTotal: 400
+          defaultMaxPerRoute: 200
+          soReuseAddress: false
+          soKeepAlive: false
+          timeToLive: 3600000
+          keepAlive: 3600000
+          keystore:
+          keyPassword:
+          hostnameVerifier:
+      logs:
+        name: logs
+        elasticUser: elastic
+        elasticPassword: 123456
+        elasticsearch:
+          rest:
+            hostNames: 10.76.209.27:9200,10.76.209.27:9201,10.76.209.27:9202
+          dateFormat: yyyy.MM.dd
+          timeZone: Asia/Shanghai
+          ttl: 2d
+          showTemplate: false
+          discoverHost: true
+        dslfile:
+          refreshInterval: -1
+        http:
+          timeoutConnection: 50000
+          timeoutSocket: 50000
+          connectionRequestTimeout: 50000
+          retryTime: 3
+          maxLineLength: -1
+          maxHeaderCount: 200
+          maxTotal: 400
+          defaultMaxPerRoute: 200
+          soReuseAddress: false
+          soKeepAlive: false
+          timeToLive: 3600000
+          keepAlive: 3600000
+          keystore:
+          keyPassword:
+          hostnameVerifier:
